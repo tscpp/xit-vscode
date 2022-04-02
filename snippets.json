@@ -1,0 +1,32 @@
+{
+    "Unchecked Item (u)": {
+        "prefix": "o",
+        "body": ["[ ] $1"],
+        "description": "Unchecked item"
+    },
+    "Checked Item (x)": {
+        "prefix": "x",
+        "body": ["[x] $1"],
+        "description": "Checked item"
+    },
+    "Ongoing Item (a)": {
+        "prefix": "a",
+        "body": ["[@] $1"],
+        "description": "Ongoing item"
+    },
+    "Ongoing Item (@)": {
+        "prefix": "@",
+        "body": ["[@] $1"],
+        "description": "Ongoing item"
+    },
+    "Obsolete Item (o)": {
+        "prefix": "o",
+        "body": ["[~] $1"],
+        "description": "Obsolete item"
+    },
+    "Obsolete Item (~)": {
+        "prefix": "~",
+        "body": ["[~] $1"],
+        "description": "Obsolete item"
+    }
+}

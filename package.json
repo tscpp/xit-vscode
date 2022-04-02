@@ -1,0 +1,81 @@
+{
+    "name": "xit",
+    "displayName": "xit!",
+    "description": "Language support for todo lists with xit syntax.",
+    "version": "0.0.1",
+    "publisher": "tscpp",
+    "repository": "https://github.com/tscpp/xit-vscode",
+    "engines": {
+        "vscode": "^1.66.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+	"activationEvents": [
+        "onCommand:xit.suggest",
+        "onCommand:xit.toggle",
+        "onCommand:xit.shuffle"
+	],
+	"main": "./dist/extension.js",
+	"scripts": {
+		"vscode:prepublish": "npm run build",
+		"build": "tsc",
+		"watch": "tsc -w"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.66.0",
+		"@types/node": "14.x",
+		"typescript": "^4.5.5"
+	},
+    "contributes": {
+        "languages": [{
+            "id": "xit",
+            "aliases": ["xit!", "xit"],
+            "extensions": [".xit"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "xit",
+            "scopeName": "source.xit",
+            "path": "./syntaxes/xit.tmLanguage.json"
+        }],
+        "keybindings": [
+            {
+                "command": "xit.suggest",
+                "key": "ctrl+space",
+                "when": "editorFocus && editorLangId == 'xit'"
+            },
+            {
+                "command": "xit.toggle",
+                "key": "ctrl+alt+x",
+                "when": "editorFocus && editorLangId == 'xit'"
+            },
+            {
+                "command": "xit.shuffle",
+                "key": "ctrl+alt+d",
+                "when": "editorFocus && editorLangId == 'xit'"
+            }
+        ],
+        "commands": [
+            {
+                "title": "Suggest (internal)",
+                "command": "xit.suggest"
+            },
+            {
+                "title": "Toggle Checkbox",
+                "command": "xit.toggle"
+            },
+            {
+                "title": "Shuffle Checkbox State",
+                "command": "xit.shuffle"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "xit",
+                "path": "./snippets.json"
+            }
+        ]
+    }
+}

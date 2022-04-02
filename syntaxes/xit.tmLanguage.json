@@ -1,0 +1,79 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "xit!",
+	"patterns": [
+		{
+			"include": "#open-items"
+		},
+		{
+			"include": "#closed-items"
+		},
+		{
+			"include": "#title"
+		},
+		{
+			"include": "#nextline-description"
+		}
+	],
+	"repository": {
+		"title": {
+			"name": "markup.underline.xit, markup.other.task.title.xit",
+			"match": "^[^\\s].*"
+		},
+		"nextline-description": {
+			"match": "^    .+"
+		},
+		"open-items": {
+			"begin": "^(?:(\\[ ?\\])|(\\[@\\]))(?= |$)",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.function.xit, markup.other.task.checkbox.open.xit"
+				},
+				"2": {
+					"name": "storage.type.xit, markup.other.task.checkbox.ongoing.xit"
+				}
+			},
+			"end": "\\n",
+			"patterns": [
+				{
+					"include": "#description"
+				}
+			]
+		},
+		"closed-items": {
+			"begin": "^(?:(\\[x\\])|(\\[~\\]))(?= |$)",
+			"beginCaptures": {
+				"1": {
+					"name": "markup.strikethrough.xit, markup.inserted.xit, markup.other.task.checkbox.checked.xit"
+				},
+				"2": {
+					"name": "comment.xit, markup.strikethrough.xit, markup.other.task.checkbox.obsolete.xit"
+				}
+			},
+			"end": "\\n",
+			"contentName": "comment.line.xit, markup.strikethrough.xit, markup.other.task.description.closed.xit",
+			"patterns": [
+				{
+					"include": "#description"
+				}
+			]
+		},
+		"description": {
+			"patterns": [
+				{	
+					"match": "(?<=^\\[[ x@~]\\] )(?:(?:!+\\.*)|(?:\\.*!+))",
+					"name": "markup.deleted.xit, markup.other.task.priority.xit"
+				},
+				{
+					"name": "constant.other.xit, markup.other.task.date.xit",
+					"match": "-> [0-9Q\\-/]+"
+				},
+				{
+					"name": "comment.block.documentation.xit, markup.other.task.tag.xit",
+					"match": "\\#(?:(?:\\S+=\"[^\"]*\")|(?:\\S+='[^']*')|(?:[^\\s\\.]+))"
+				}
+			]
+		}
+	},
+	"scopeName": "source.xit"
+}
