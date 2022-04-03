@@ -75,4 +75,4 @@ The extension provides shortcuts for toggling/shuffling checkbox state. The shor
 - `u` - Unchecked (`[ ] `)
 - `a`/`@` - Ongoing (`[@] `)
 - `o`/`~` - Obsolete (`[~] `)
-- `x` - Unchecked (`[x] `)
+- `x` - Checked (`[x] `)

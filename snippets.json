@@ -1,6 +1,6 @@
 {
     "Unchecked Item (u)": {
-        "prefix": "o",
+        "prefix": "u",
         "body": ["[ ] $1"],
         "description": "Unchecked item"
     },
