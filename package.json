@@ -2,7 +2,7 @@
     "name": "xit",
     "displayName": "xit!",
     "description": "Language support for todo lists with xit syntax.",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "tscpp",
     "repository": "https://github.com/tscpp/xit-vscode",
     "engines": {
