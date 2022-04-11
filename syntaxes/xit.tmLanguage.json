@@ -32,6 +32,13 @@
 				},
 				"2": {
 					"name": "storage.type.xit, markup.other.task.checkbox.ongoing.xit"
+				},
+				"3": {
+					"patterns": [
+						{
+							"include": "#item-description"
+						}
+					]
 				}
 			},
 			"while": "    (.+)",
@@ -55,7 +62,12 @@
 					"name": "comment.xit, markup.other.task.checkbox.obsolete.xit"
 				},
 				"3": {
-					"name": "comment.xit, markup.strikethrough.xit"
+					"name": "comment.xit, markup.strikethrough.xit",
+					"patterns": [
+						{
+							"include": "#item-description"
+						}
+					]
 				}
 			},
 			"while": "    (.+)",
