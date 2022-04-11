@@ -3,16 +3,10 @@
 	"name": "xit!",
 	"patterns": [
 		{
-			"include": "#open-items"
-		},
-		{
-			"include": "#closed-items"
+			"include": "#item"
 		},
 		{
 			"include": "#title"
-		},
-		{
-			"include": "#nextline-description"
 		}
 	],
 	"repository": {
@@ -20,11 +14,18 @@
 			"name": "markup.underline.xit, markup.other.task.title.xit",
 			"match": "^[^\\s].*"
 		},
-		"nextline-description": {
-			"match": "^    .+"
+		"item": {
+			"patterns": [
+				{
+					"include": "#open-item"
+				},
+				{
+					"include": "#closed-item"
+				}
+			]
 		},
-		"open-items": {
-			"begin": "^(?:(\\[ ?\\])|(\\[@\\]))(?= |$)",
+		"open-item": {
+			"begin": "^(?:(\\[ *\\])|(\\[@\\]))[^\\S\\n]*(.*(?= |$))",
 			"beginCaptures": {
 				"1": {
 					"name": "variable.function.xit, markup.other.task.checkbox.open.xit"
@@ -33,34 +34,45 @@
 					"name": "storage.type.xit, markup.other.task.checkbox.ongoing.xit"
 				}
 			},
-			"end": "\\n",
-			"patterns": [
-				{
-					"include": "#description"
+			"while": "    (.+)",
+			"whileCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#item-description"
+						}
+					]
 				}
-			]
+			}
 		},
-		"closed-items": {
-			"begin": "^(?:(\\[x\\])|(\\[~\\]))(?= |$)",
+		"closed-item": {
+			"begin": "^(?:(\\[x\\])|(\\[~\\]))[^\\S\\n]*(.*(?= |$))",
 			"beginCaptures": {
 				"1": {
-					"name": "markup.strikethrough.xit, markup.inserted.xit, markup.other.task.checkbox.checked.xit"
+					"name": "markup.inserted.xit, markup.other.task.checkbox.checked.xit"
 				},
 				"2": {
-					"name": "comment.xit, markup.strikethrough.xit, markup.other.task.checkbox.obsolete.xit"
+					"name": "comment.xit, markup.other.task.checkbox.obsolete.xit"
+				},
+				"3": {
+					"name": "comment.xit, markup.strikethrough.xit"
 				}
 			},
-			"end": "\\n",
-			"contentName": "comment.line.xit, markup.strikethrough.xit, markup.other.task.description.closed.xit",
+			"while": "    (.+)",
+			"whileCaptures": {
+				"1": {
+					"name": "comment.xit, markup.strikethrough.xit",
+					"patterns": [
+						{
+							"include": "#item-description"
+						}
+					]
+				}
+			}
+		},
+		"item-description": {
 			"patterns": [
 				{
-					"include": "#description"
-				}
-			]
-		},
-		"description": {
-			"patterns": [
-				{	
 					"match": "(?<=^\\[[ x@~]\\] )(?:(?:!+\\.*)|(?:\\.*!+))",
 					"name": "markup.deleted.xit, markup.other.task.priority.xit"
 				},
