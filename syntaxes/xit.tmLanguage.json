@@ -25,7 +25,7 @@
 			]
 		},
 		"open-item": {
-			"begin": "^(?:(\\[ *\\])|(\\[@\\]))[^\\S\\n]*(.*(?= |$))",
+			"begin": "^(?:(\\[ *\\])|(\\[@\\])|(\\[\\?\\]))[^\\S\\n]*(.*(?= |$))",
 			"beginCaptures": {
 				"1": {
 					"name": "variable.function.xit, markup.other.task.checkbox.open.xit"
@@ -34,6 +34,9 @@
 					"name": "storage.type.xit, markup.other.task.checkbox.ongoing.xit"
 				},
 				"3": {
+					"name": "entity.name.type.enum.xit, markup.other.task.checkbox.ongoing.xit"
+				},
+				"4": {
 					"patterns": [
 						{
 							"include": "#item-description"
