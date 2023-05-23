@@ -25,6 +25,7 @@ If the colors and looks of the syntax highlighting is not correct or as fancy as
             // - markup.other.task.checkbox.ongoing.xit
             // - markup.other.task.checkbox.checked.xit
             // - markup.other.task.checkbox.obsolete.xit
+            // - markup.other.task.checkbox.inquestion.xit
             // - markup.other.task.description.closed.xit
             // - markup.other.task.priority.xit
             // - markup.other.task.date.xit
@@ -76,3 +77,4 @@ The extension provides shortcuts for toggling/shuffling checkbox state. The shor
 - `a`/`@` - Ongoing (`[@] `)
 - `o`/`~` - Obsolete (`[~] `)
 - `x` - Checked (`[x] `)
+- `q` - Question (`[?] `)

@@ -48,7 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const editor = vscode.window.activeTextEditor!;
 
 		editSelectedCheckboxes(editor, (value) => {
-			return /^\s*$/.test(value) ? 'x' : ' ';
+			return /^(\s*|\?)$/.test(value) ? 'x' : ' ';
 		});
 	}));
 
@@ -59,10 +59,11 @@ export function activate(context: vscode.ExtensionContext) {
 			const edit =
 				/* 1. " " -> "@" */ /^\s*$/.test(value) ? '@' :
 				/* 2. "@" -> "~" */ value === '@' ? '~' :
-				/* 3. "~" -> "x" */ value === '~' ? 'x' :
+				/* 3. "~" -> "?" */ value === '~' ? '?' :
+				/* 3. "?" -> "x" */ value === '?' ? 'x' :
 				/* 4. "x" -> " " */ value === 'x' ? ' '
 				/* fallback */ : ' ';
-				
+
 			return edit;
 		});
 	}));

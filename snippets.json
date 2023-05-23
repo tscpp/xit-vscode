@@ -19,6 +19,11 @@
         "body": ["[@] $1"],
         "description": "Ongoing item"
     },
+     "In Question Item (?)": {
+        "prefix": "q",
+        "body": ["[?] $1"],
+        "description": "In Question item"
+    },
     "Obsolete Item (o)": {
         "prefix": "o",
         "body": ["[~] $1"],
